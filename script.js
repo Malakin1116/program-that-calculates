@@ -29,3 +29,77 @@ function showTotalSum() {
 window.onload = function() {
     // Якщо потрібно, реалізуйте відновлення даних з localStorage для обох виводів
 }
+
+document.getElementById('openModal').onclick = function() {
+    var modal = document.getElementById('modal');
+    var calculations = document.getElementById('calculations');
+    calculations.innerHTML = ''; // Очищення попередніх розрахунків
+    modal.style.display = "block";
+    
+    const maxPrice = parseInt(document.getElementById('maxPriceInput1').value);
+    let htmlContent = '';
+
+    for (let price = 250; price <= 1000; price += 5) {
+        let result = price * 0.2;
+        if (price <= maxPrice) {
+            htmlContent += `<p class="green">${price} * 0.2 = $${result.toFixed(2)}</p>`;
+        } else {
+            htmlContent += `<p class="red">${price} * 0.2 = $${result.toFixed(2)}</p>`;
+        }
+    }
+    
+    calculations.innerHTML = htmlContent;
+};
+
+document.getElementsByClassName('close')[0].onclick = function() {
+    var modal = document.getElementById('modal');
+    modal.style.display = "none";
+};
+
+window.onclick = function(event) {
+    var modal = document.getElementById('modal');
+    if (event.target === modal) {
+        modal.style.display = "none";
+    }
+};
+
+document.getElementById('openModal').onclick = function() {
+    showModal(250, 1000, 0.2, 'maxPriceInput1');
+};
+
+document.getElementById('openModal2').onclick = function() {
+    showModal(25, 500, 0.25, 'maxPriceInput2');
+};
+
+function showModal(startPrice, endPrice, fraction, inputId) {
+    var modal = document.getElementById('modal');
+    var calculations = document.getElementById('calculations');
+    calculations.innerHTML = ''; // Очищення попередніх розрахунків
+    modal.style.display = "block";
+    
+    const maxPrice = parseInt(document.getElementById(inputId).value);
+    let htmlContent = '';
+
+    for (let price = startPrice; price <= endPrice; price += 5) {
+        let result = price * fraction;
+        if (price <= maxPrice) {
+            htmlContent += `<p class="green">${price} * ${fraction} = $${result.toFixed(2)}</p>`;
+        } else {
+            htmlContent += `<p class="red">${price} * ${fraction} = $${result.toFixed(2)}</p>`;
+        }
+    }
+    
+    calculations.innerHTML = htmlContent;
+};
+
+document.getElementsByClassName('close')[0].onclick = function() {
+    var modal = document.getElementById('modal');
+    modal.style.display = "none";
+};
+
+window.onclick = function(event) {
+    var modal = document.getElementById('modal');
+    if (event.target === modal) {
+        modal.style.display = "none";
+    }
+};
