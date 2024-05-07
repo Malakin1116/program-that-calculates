@@ -1,40 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Price Calculator</title>
+    <title>Калькулятор Розрахунку Цін</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>Price Range Sum Calculator</h1>
+        <h1>Калькулятор Суми Діапазонів Цін</h1>
+
         <div class="column">
-            <h2>Range: $250 to $1000</h2>
-            <input type="number" id="maxPriceInput1" placeholder="Enter price ($250 to $1000)" min="250" max="1000">
-            <button onclick="calculateAndStore(250, 1000, 0.2, 'output1', 'maxPriceInput1')">Calculate Sum</button>
+            <h2>Діапазон: $250 до $1000</h2>
+            <input type="number" id="maxPriceInput1" placeholder="Введіть ціну ($250 до $1000)" min="250" max="1000">
+            <button onclick="calculateAndStore(250, 1000, 0.2, 'output1', 'maxPriceInput1')">Розрахувати Суму</button>
             <div id="output1"></div>
         </div>
+
         <div class="column">
-            <h2>Range: $25 to $500</h2>
-            <input type="number" id="maxPriceInput2" placeholder="Enter price ($25 to $500)" min="25" max="500">
-            <button onclick="calculateAndStore(25, 500, 0.25, 'output2', 'maxPriceInput2')">Calculate Sum</button>
+            <h2>Діапазон: $25 до $500</h2>
+            <input type="number" id="maxPriceInput2" placeholder="Введіть ціну ($25 до $500)" min="25" max="500">
+            <button onclick="calculateAndStore(25, 500, 0.25, 'output2', 'maxPriceInput2')">Розрахувати Суму</button>
             <div id="output2"></div>
         </div>
+
         <div class="total">
-            <h2>Total Sum of Both Ranges</h2>
-            <button onclick="showTotalSum()">Show Total Sum</button>
+            <h2>Загальна Сума Обох Діапазонів</h2>
+            <button onclick="showTotalSum()">Показати Загальну Суму</button>
             <div id="totalOutput"></div>
         </div>
-        <button id="openModal">Показати розрахунки</button>
 
-<div id="modal" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <div id="calculations"></div>
-    </div>
-</div>
-<button id="openModal2">Показати розрахунки для другої колонки</button>
+        <button id="openModal">Показати Розрахунки</button>
+
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div id="calculations"></div>
+            </div>
+        </div>
+
+        <button id="openModal2">Показати Розрахунки для Другої Колонки</button>
+
+        <div class="income-calculation">
+            <h2>Розрахунок Річного Заробітку</h2>
+            <input type="number" id="totalCapital" placeholder="Введіть суму грошей">
+            <input type="number" id="dailyEarnings" placeholder="Сума, зароблена за день">
+            <button onclick="calculateAnnualEarnings()">Розрахувати</button>
+            <div id="annualEarningsResult"></div>
+        </div>
+
     </div>
     <script src="script.js"></script>
 </body>

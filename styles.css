@@ -48,11 +48,10 @@ button {
     border-radius: 5px;
 }
 
-/* Медіа-запити для адаптації під мобільні телефони */
+/* Адаптація під мобільні телефони */
 @media (max-width: 600px) {
     .container {
         width: 100%;
-        flex-direction: column;
     }
 
     .column, .total {
@@ -61,11 +60,11 @@ button {
 
     input, button {
         width: 80%;
-        font-size: 16px; /* Збільшення шрифту для кращого читання */
+        font-size: 16px;
     }
 }
 
-/* Медіа-запити для адаптації під планшети */
+/* Адаптація під планшети */
 @media (min-width: 601px) and (max-width: 1024px) {
     .container {
         width: 95%;
@@ -80,7 +79,7 @@ button {
     }
 }
 
-/* Медіа-запити для адаптації під настільні комп'ютери */
+/* Адаптація під настільні комп'ютери */
 @media (min-width: 1025px) {
     .container {
         width: 90%;
@@ -96,43 +95,82 @@ button {
 }
 
 .modal {
-    display: none;
+    display: none; /* Приховано за замовчуванням */
     position: fixed;
-    z-index: 1;
+    z-index: 1000; /* Високий z-index, щоб бути над іншими елементами */
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.4);
+    overflow: auto; /* Дозволяє прокрутку, якщо вміст великий */
+    background-color: rgba(0, 0, 0, 0.6); /* Півпрозорий темний фон */
+    animation: fadeIn 0.3s; /* Анімація з'явлення */
 }
 
 .modal-content {
+    position: relative;
     background-color: #fefefe;
-    margin: 15% auto;
-    padding: 20px;
+    margin: 5% auto; /* Зменшено верхній відступ */
+    padding: 10px; /* Зменшено внутрішній відступ */
     border: 1px solid #888;
-    width: 80%;
+    width: 40%; /* Зменшено ширину для більш компактного вигляду */
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    animation: slideDown 0.3s;
+    overflow: hidden; /* Запобігає виходу вмісту за межі блоку */
 }
 
 .close {
     color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+    position: absolute;
+    right: 10px; /* Зменшено відступ з правого краю */
+    top: 10px; /* Зменшено відступ з верхнього краю */
+    font-size: 20px; /* Зменшено розмір шрифту */
+}
+#calculations {
+    font-size: 14px; /* Зменшено розмір шрифту вмісту для більшої компактності */
+    line-height: 1.5; /* Збільшено міжрядковий інтервал для кращої читабельності */
 }
 
 .close:hover,
 .close:focus {
-    color: black;
+    color: #000;
     text-decoration: none;
     cursor: pointer;
 }
 
+/* Анімації */
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes slideDown {
+    from {transform: translateY(-50px);}
+    to {transform: translateY(0);}
+}
+
+/* Стилізація для зелених та червоних елементів в середині модалки */
 .green {
-    color: green;
+    color: #4CAF50; /* Яскравіший зелений */
 }
 
 .red {
-    color: red;
+    color: #F44336; /* Яскравіший червоний */
+}
+
+.income-calculation {
+    background-color: #1cac80; /* Змінено колір фону на темно-зелений */
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+    width: 70%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.income-calculation input, .income-calculation button {
+    margin-top: 10px;
+    padding: 10px;
+    width: 80%;
+    border-radius: 5px;
 }

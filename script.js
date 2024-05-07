@@ -103,3 +103,25 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 };
+
+function calculateAnnualEarnings() {
+    const totalCapitalElement = document.getElementById('totalCapital');
+    const dailyEarningsElement = document.getElementById('dailyEarnings');
+    const resultElement = document.getElementById('annualEarningsResult');
+
+    if (!totalCapitalElement || !dailyEarningsElement) {
+        console.error("Element(s) not found in the document.");
+        return;
+    }
+
+    const totalCapital = parseFloat(totalCapitalElement.value);
+    const dailyEarnings = parseFloat(dailyEarningsElement.value);
+
+    if (isNaN(totalCapital) || isNaN(dailyEarnings)) {
+        resultElement.innerText = 'Будь ласка, введіть коректні числові значення у обидва поля.';
+        return;
+    }
+
+    const annualEarnings = (dailyEarnings * 365) / totalCapital * 100;
+    resultElement.innerText = `Річний заробіток складає: ${annualEarnings.toFixed(2)}%`;
+}
