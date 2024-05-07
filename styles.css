@@ -1,38 +1,96 @@
 body {
     font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+    color: white;
+    padding: 20px 0;
 }
 
 .container {
     width: 90%;
     margin: auto;
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
 }
 
-.column {
-    width: 40%;
+.column, .total {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #333;
+    border-radius: 12px;
     padding: 20px;
-    box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
-    border-radius: 8px;
+    margin-bottom: 20px;
+    width: 70%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 input, button {
-    margin: 10px;
-    padding: 10px;
-    font-size: 16px;
-    width: 80%;
+    margin: 5px;
+    padding: 8px;
+    font-size: 14px;
+    width: 30%;
+    border-radius: 8px;
 }
 
 button {
     cursor: pointer;
-    background-color: #4CAF50;
+    background-color: #084c61;
     color: white;
     border: none;
 }
 
-#output1, #output2 {
+#output1, #output2, #totalOutput {
     margin-top: 20px;
-    font-size: 18px;
-    color: green;
+    font-size: 16px;
+    color: #333;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Медіа-запити для адаптації під мобільні телефони */
+@media (max-width: 600px) {
+    .container {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .column, .total {
+        width: 90%;
+    }
+
+    input, button {
+        width: 80%;
+        font-size: 16px; /* Збільшення шрифту для кращого читання */
+    }
+}
+
+/* Медіа-запити для адаптації під планшети */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .container {
+        width: 95%;
+    }
+
+    .column, .total {
+        width: 85%;
+    }
+
+    input, button {
+        width: 70%;
+    }
+}
+
+/* Медіа-запити для адаптації під настільні комп'ютери */
+@media (min-width: 1025px) {
+    .container {
+        width: 90%;
+    }
+
+    .column, .total {
+        width: 70%;
+    }
+
+    input, button {
+        width: 30%;
+    }
 }
